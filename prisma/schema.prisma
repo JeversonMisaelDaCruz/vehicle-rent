@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Enterprise {
+  id           String     @id @default(uuid())
+  fantasyName  String
+  socialReason String
+  cnpj         String
+  location     Location[]
+
+  @@map("enterprises")
+}
+
+model Custumer {
+  id           String     @id @default(uuid())
+  fantasyName  String
+  socialReason String
+  cnpj         String
+  location     Location[]
+
+  @@map("custumers")
+}
+
+model Vehicle {
+  id       String     @id @default(uuid())
+  name     String
+  year     Int
+  DayValue Float
+  typefuel TypeFuel
+  color_id String
+  color    Color      @relation(fields: [color_id], references: [id])
+  model_id String
+  model    Model      @relation(fields: [model_id], references: [id])
+  status   Status @default(Disponible)
+  location Location[]
+
+  @@map("vehicles")
+}
+
+enum Status {
+  Disponible
+  Indisponible
+  Maintenance
+  Inative
+}
+
+enum TypeFuel {
+  Gasoline
+  Diesel
+  Alchool
+  Gas
+  Eletric
+  Flex
+}
+
+model Color {
+  id      String    @id @default(uuid())
+  name    String
+  vehicle Vehicle[]
+}
+
+model Model {
+  id            String      @id @default(uuid())
+  name          String
+  vehicle       Vehicle[]
+  brand_Id      String
+  brand         Brand       @relation(fields: [brandId], references: [id])
+  brandId       String
+  typeVehicle   typeVehicle @relation(fields: [typeVehicleId], references: [id])
+  typeVehicleId String
+
+  @@map("models")
+}
+
+model Brand {
+  id    String  @id @default(uuid())
+  name  String
+  model Model[]
+
+  @@map("brands")
+}
+
+model typeVehicle {
+  id    String  @id @default(uuid())
+  name  String
+  model Model[]
+
+  @@map("typevehicles")
+}
+
+model Location {
+  id             String     @id @default(uuid())
+  start_at       DateTime
+  preventDateEnd DateTime
+  end_at         DateTime?
+  totalValue     Float
+  Vehicle        Vehicle    @relation(fields: [vehicleId], references: [id])
+  vehicleId      String
+  Custumer       Custumer   @relation(fields: [custumerId], references: [id])
+  custumerId     String
+  Enterprise     Enterprise @relation(fields: [enterpriseId], references: [id])
+  enterpriseId   String
+
+  @@map("locations")
+}
