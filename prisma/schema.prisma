@@ -76,7 +76,6 @@ model Model {
   id            String      @id @default(uuid())
   name          String
   vehicle       Vehicle[]
-  brand_Id      String
   brand         Brand       @relation(fields: [brandId], references: [id])
   brandId       String
   typeVehicle   typeVehicle @relation(fields: [typeVehicleId], references: [id])
