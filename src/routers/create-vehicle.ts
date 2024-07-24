@@ -1,43 +1,37 @@
-import { FastifyInstance } from "fastify";
-import { ZodTypeProvider } from "fastify-type-provider-zod";
-import z from "zod";
-import { prisma } from "../lib/prisma";
+import { FastifyInstance } from 'fastify'
+import { ZodTypeProvider } from 'fastify-type-provider-zod'
+import z from 'zod'
+import { prisma } from '../lib/prisma'
 
 export async function createVehicle(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
-    "/vehicle",
+    '/vehicle',
     {
       schema: {
         body: z.object({
-          name: z.string().min(3).max(25),
-          year: z.number().max(4).min(4),
+          name: z.string().min(4).max(40),
+          year: z.number().min(1900).max(2024),
           DayValue: z.number().finite(),
-          typefuel: z.enum([ "Gasoline",
-            "Diesel",
-            "Gas",
-            "Eletric",
-            "Flex"]),
-          color_id: z.string(),
-          model_id: z.string()
-
+          typefuel: z.enum(['Gasoline', 'Diesel', 'Gas', 'Eletric', 'Flex']),
+          colorId: z.string(),
+          modelId: z.string(),
         }),
       },
     },
     async (request) => {
-      const { name,year,DayValue,typefuel,color_id,model_id } = request.body;
-      const sendTypeVehicle = await prisma.vehicle.create({
+      const { name, year, DayValue, typefuel, colorId, modelId } = request.body
+      const vehicle = await prisma.vehicle.create({
         data: {
           name,
           year,
           DayValue,
           typefuel,
-          color_id,
-          model_id
-
+          color_id: colorId,
+          model_id: modelId,
         },
-      });
+      })
 
-      return { typeVehicleId: sendTypeVehicle.id };
-    }
-  );
+      return { VehicleId: vehicle.id }
+    },
+  )
 }

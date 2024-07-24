@@ -1,11 +1,11 @@
-import { FastifyInstance } from "fastify";
-import { ZodTypeProvider } from "fastify-type-provider-zod";
-import z from "zod";
-import { prisma } from "../lib/prisma";
+import { FastifyInstance } from 'fastify'
+import { ZodTypeProvider } from 'fastify-type-provider-zod'
+import z from 'zod'
+import { prisma } from '../lib/prisma'
 
 export async function createBrand(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
-    "/brand",
+    '/brand',
     {
       schema: {
         body: z.object({
@@ -14,14 +14,14 @@ export async function createBrand(app: FastifyInstance) {
       },
     },
     async (request) => {
-      const { name } = request.body;
+      const { name } = request.body
       const sendBrand = await prisma.brand.create({
         data: {
           name,
         },
-      });
+      })
 
-      return { brandid: sendBrand.id };
-    }
-  );
+      return { brandid: sendBrand.id }
+    },
+  )
 }
