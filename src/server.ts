@@ -11,6 +11,7 @@ import { createModel } from './routers/create-model'
 import { listVehicle } from './routers/list-vehicles'
 import { createVehicle } from './routers/create-vehicle'
 import { detailVehicle } from './routers/detail-vehicle'
+import { updateVehicle } from './routers/update-vehicle'
 
 const app = fastify()
 
@@ -28,6 +29,7 @@ app.register(createModel)
 app.register(createVehicle)
 app.register(listVehicle)
 app.register(detailVehicle)
+app.register(updateVehicle)
 
 app
   .listen({
