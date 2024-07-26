@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import { createColor } from './routers/create-color'
+import { createColor } from './routers/color/create-color'
 import cors from '@fastify/cors'
 import {
   serializerCompiler,
@@ -8,10 +8,10 @@ import {
 import { createBrand } from './routers/create-brand'
 import { createTypeVehicle } from './routers/create-typeVehicle'
 import { createModel } from './routers/create-model'
-import { listVehicle } from './routers/list-vehicles'
-import { createVehicle } from './routers/create-vehicle'
-import { detailVehicle } from './routers/detail-vehicle'
-import { updateVehicle } from './routers/update-vehicle'
+import { listVehicle } from './routers/vehicle/list-vehicles'
+import { createVehicle } from './routers/vehicle/create-vehicle'
+import { detailVehicle } from './routers/vehicle/detail-vehicle'
+import { updateVehicle } from './routers/vehicle/update-vehicle'
 
 const app = fastify()
 
