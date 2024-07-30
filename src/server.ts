@@ -12,6 +12,7 @@ import { listVehicle } from './routers/vehicle/list-vehicles'
 import { createVehicle } from './routers/vehicle/create-vehicle'
 import { detailVehicle } from './routers/vehicle/detail-vehicle'
 import { updateVehicle } from './routers/vehicle/update-vehicle'
+import { listColor } from './routers/color/list-color'
 
 const app = fastify()
 
@@ -30,6 +31,7 @@ app.register(createVehicle)
 app.register(listVehicle)
 app.register(detailVehicle)
 app.register(updateVehicle)
+app.register(listColor)
 
 app
   .listen({
