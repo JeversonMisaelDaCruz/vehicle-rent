@@ -13,7 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Enterprise {
   id           String     @id @default(uuid())
   fantasyName  String
@@ -35,17 +34,18 @@ model Custumer {
 }
 
 model Vehicle {
-  id       String     @id @default(uuid())
+  id       String   @id @default(uuid())
   name     String
   year     Int
   DayValue Float
   typefuel TypeFuel
   color_id String
-  color    Color      @relation(fields: [color_id], references: [id])
-  model_id String
-  model    Model      @relation(fields: [model_id], references: [id])
-  status   Status @default(Disponible)
+  color    Color    @relation(fields: [color_id], references: [id])
+
+  status   Status     @default(Disponible)
   location Location[]
+  Model    Model?     @relation(fields: [modelId], references: [id])
+  modelId  String?
 
   @@map("vehicles")
 }
