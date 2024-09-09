@@ -8,11 +8,12 @@ import {
 import { createBrand } from './routers/create-brand'
 import { createTypeVehicle } from './routers/create-typeVehicle'
 import { createModel } from './routers/create-model'
-import { listVehicle } from './routers/vehicle/list-vehicles'
+import { listVehicles } from './routers/vehicle/list-vehicles'
 import { createVehicle } from './routers/vehicle/create-vehicle'
 import { detailVehicle } from './routers/vehicle/detail-vehicle'
 import { updateVehicle } from './routers/vehicle/update-vehicle'
 import { listColor } from './routers/color/list-color'
+import { detailColor } from './routers/color/detail-color'
 
 const app = fastify()
 
@@ -28,10 +29,11 @@ app.register(createBrand)
 app.register(createTypeVehicle)
 app.register(createModel)
 app.register(createVehicle)
-app.register(listVehicle)
+app.register(listVehicles)
 app.register(detailVehicle)
 app.register(updateVehicle)
 app.register(listColor)
+app.register(detailColor)
 
 app
   .listen({

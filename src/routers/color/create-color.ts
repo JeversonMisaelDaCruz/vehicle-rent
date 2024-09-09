@@ -1,11 +1,11 @@
-import { FastifyInstance } from 'fastify'
-import { ZodTypeProvider } from 'fastify-type-provider-zod'
-import z from 'zod'
-import { prisma } from '../../lib/prisma'
+import { FastifyInstance } from "fastify";
+import { ZodTypeProvider } from "fastify-type-provider-zod";
+import z from "zod";
+import { prisma } from "../../lib/prisma";
 
 export async function createColor(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
-    '/color',
+    "/color",
     {
       schema: {
         body: z.object({
@@ -14,13 +14,13 @@ export async function createColor(app: FastifyInstance) {
       },
     },
     async (request) => {
-      const { name } = request.body
+      const { name } = request.body;
       const sendColor = await prisma.color.create({
         data: {
           name,
         },
-      })
-      return { colorid: sendColor.id }
-    },
-  )
+      });
+      return { colorid: sendColor.id };
+    }
+  );
 }
