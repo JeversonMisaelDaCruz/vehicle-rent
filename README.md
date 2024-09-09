@@ -60,6 +60,10 @@ As rotas disponveis, caso tenha interesse em colaborar basta subir um PR, apôs 
 * `PUT /enterprise/:id`: Atualiza uma empresa existente.
 * `DELETE /enterprise/:id`: Deleta uma empresa existente.
 
+# A fazer:
+
+
+
 # Em caso de duvida, segue as documentaçoes das tecnologias usadas.
 * https://www.prisma.io/docs/getting-started `migrations para o banco e crude`
 * https://fastify.dev/docs/latest/Guides/Getting-Started/ `fastify router, criaçao de rotas`
