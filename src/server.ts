@@ -6,7 +6,7 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { createBrand } from './routers/create-brand'
-import { createTypeVehicle } from './routers/vehicle/create-typeVehicle'
+import { createTypeVehicle } from './routers/type-vehicle/create-typeVehicle'
 import { createModel } from './routers/create-model'
 import { listVehicles } from './routers/vehicle/list-vehicles'
 import { createVehicle } from './routers/vehicle/create-vehicle'

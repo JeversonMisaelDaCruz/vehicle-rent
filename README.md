@@ -60,7 +60,48 @@ As rotas disponveis, caso tenha interesse em colaborar basta subir um PR, apôs 
 * `PUT /enterprise/:id`: Atualiza uma empresa existente.
 * `DELETE /enterprise/:id`: Deleta uma empresa existente.
 
+
 # A fazer:
+  * MODEL: 
+  - criar rota para detail pelo id
+  - criar rota para de detail pelo id
+  - criar rota para update
+  - para listar modelo
+  - Rota para deletar
+
+  * COLOR:
+  - criar rota para update
+  - Rota para deletar
+
+  * BRAND:
+  - Rota para listar todos
+  - Listar detalhado
+  - Rota para realizar Update
+  - Rota para deletar
+
+  * TYPE VEHICLE:
+  - Rota detalhar 
+  - Rota list
+  - Rota Update
+  - Rota para deletar
+
+  * VEHICLE:
+  - Rota para deletar
+
+
+  * ENTERPRISE:
+  - Rota para criar 
+  - Rota para deletar
+  - Rota para update
+  - Rota para deletar
+
+  * CUSTOMER:
+  - Rota para criar cliente
+  - Rota para deletar
+  - Rota para update
+  - Rota para deletar
+ 
+
 
 
 
