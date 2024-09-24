@@ -20,6 +20,16 @@ export async function updateBrand(app: FastifyInstance) {
       const { brandId } = request.params;
       const { name } = request.body;
 
+      const brandNull = await prisma.brand.findUnique({
+        where: {
+          id: brandId,
+        }
+      })
+
+      if(!brandNull) {
+        reply.send({ success: false, message: "Brand not found" })
+      }
+
       await prisma.brand.update({
         where: {
           id: brandId,
