@@ -1,3 +1,4 @@
+
 import { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { prisma } from '../../lib/prisma'
@@ -19,9 +20,15 @@ export async function detailVehicle(app: FastifyInstance) {
         where: {
           id: vehicleId,
         },
+        include: {
+          Model: true,
+          color: true,
+        },
       })
+
 
       return { vehicle }
     },
   )
 }
+
