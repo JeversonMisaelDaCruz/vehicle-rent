@@ -27,7 +27,7 @@ export async function createVehicle(app: FastifyInstance) {
           DayValue,
           typefuel,
           color_id: colorId,
-          
+        
         },
       })
 
