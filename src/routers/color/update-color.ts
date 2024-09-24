@@ -17,7 +17,7 @@ export async function updateColor(app: FastifyInstance) {
       },
     },
 
-    async (request) => {
+    async (request, reply) => {
       const { colorId } = request.params;
 
       const { name } = request.body;
@@ -30,8 +30,11 @@ export async function updateColor(app: FastifyInstance) {
           name,
         }, 
       });
+      reply.send({ success: true });
     }
+    
   );
 }
+
 
 // adicionar return
