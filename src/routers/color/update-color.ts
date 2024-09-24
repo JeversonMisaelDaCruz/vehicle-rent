@@ -30,8 +30,7 @@ export async function updateColor(app: FastifyInstance) {
           name,
         }, 
       });
-      reply.send({ success: true });
-    }
+      reply.send({ success: true, updatedName: name });    }
     
   );
 }

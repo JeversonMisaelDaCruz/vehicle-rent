@@ -28,8 +28,7 @@ export async function updateBrand(app: FastifyInstance) {
           name,
         },
       });
-      reply.send({ success: true });
-
+      reply.send({ success: true, updatedName: name });
     }
   );
 }
