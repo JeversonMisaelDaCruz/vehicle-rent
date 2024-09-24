@@ -18,6 +18,7 @@ import { detailVehicle } from './routers/vehicle/detail-vehicle';
 import { detailBrand } from './routers/brand/detail-brand';
 import { listBrand } from './routers/brand/list-brand';
 import { updateBrand } from './routers/brand/update-brand';
+import { deleteBrand } from './routers/brand/delete-brand';
 
 const app = fastify()
 
@@ -45,6 +46,7 @@ app.register(updateColor)
 app.register(detailBrand)
 app.register(listBrand)
 app.register(updateBrand)
+app.register(deleteBrand)
 // Iniciar o servidor em uma única porta
 app.listen({ port: 3333 }, (err, address) => {
   if (err) {
