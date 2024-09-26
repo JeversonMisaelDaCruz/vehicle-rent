@@ -9,7 +9,18 @@ Para instalar as dependências do projeto, execute:
 npm i
 ```
 
-Para visualizar o banco de dados de forma mais intuitiva, utilize:
+Para visualizar o banco de dados .
+Primeiro precisamos iniciar a intancia docker.
+
+```bash
+ docker-compose up -d
+```
+
+Apos isso precisamos configurar nosso arquivo .ENV, basta criar um arquivo . ENV e passar as seguintes informações.
+```bash
+DATABASE_URL="postgresql://vehiclecontrol:488531@localhost:5433/vehiclecontrol"
+```
+Para vizualizar o banco de dados basta iniciar atraves do prisma.
 
 ```bash
 npx prisma studio
