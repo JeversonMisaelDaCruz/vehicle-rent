@@ -28,12 +28,12 @@ CREATE TABLE "custumers" (
 CREATE TABLE "vehicles" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "year" TEXT NOT NULL,
+    "year" INTEGER NOT NULL,
     "DayValue" DOUBLE PRECISION NOT NULL,
     "typefuel" "TypeFuel" NOT NULL,
     "color_id" TEXT NOT NULL,
-    "model_id" TEXT NOT NULL,
-    "status" "Status" NOT NULL,
+    "status" "Status" NOT NULL DEFAULT 'Disponible',
+    "modelId" TEXT,
 
     CONSTRAINT "vehicles_pkey" PRIMARY KEY ("id")
 );
@@ -50,7 +50,6 @@ CREATE TABLE "Color" (
 CREATE TABLE "models" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "brand_Id" TEXT NOT NULL,
     "brandId" TEXT NOT NULL,
     "typeVehicleId" TEXT NOT NULL,
 
@@ -91,7 +90,7 @@ CREATE TABLE "locations" (
 ALTER TABLE "vehicles" ADD CONSTRAINT "vehicles_color_id_fkey" FOREIGN KEY ("color_id") REFERENCES "Color"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "vehicles" ADD CONSTRAINT "vehicles_model_id_fkey" FOREIGN KEY ("model_id") REFERENCES "models"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "vehicles" ADD CONSTRAINT "vehicles_modelId_fkey" FOREIGN KEY ("modelId") REFERENCES "models"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "models" ADD CONSTRAINT "models_brandId_fkey" FOREIGN KEY ("brandId") REFERENCES "brands"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
