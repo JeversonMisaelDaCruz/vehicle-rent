@@ -103,14 +103,8 @@ O projeto possui as seguintes rotas disponíveis. Se quiser contribuir, basta ab
 - Rota para deletar
 
 ### `COLOR`
-- Criar rota para update
 - Rota para deletar
 
-### `BRAND`
-- Rota para listar todos
-- Listar detalhado
-- Rota para realizar update
-- Rota para deletar
 
 ### `TYPE VEHICLE`
 - Rota detalhar
@@ -118,8 +112,6 @@ O projeto possui as seguintes rotas disponíveis. Se quiser contribuir, basta ab
 - Rota update
 - Rota para deletar
 
-### `VEHICLE`
-- Rota para deletar
 
 ### `ENTERPRISE`
 - Rota para criar 
