@@ -134,6 +134,9 @@ O projeto possui as seguintes rotas disponíveis. Se quiser contribuir, basta ab
 - Rota para update
 - Rota para deletar
 
+### `MVC`
+- Colocar o projeto na arquitetura mvc
+
 ## Documentação das Tecnologias
 
 - [Prisma](https://www.prisma.io/docs/getting-started): Para gerenciamento do banco de dados e CRUD.
